@@ -28,7 +28,7 @@ def scrape_list(url)
     data = { 
       name: li.at_xpath('.//text()').text.tidy,
       wikiname: li.xpath('.//a[not(@class="new")]/@title').text,
-      area: li.xpath('preceding::b').last.text.tidy,
+      area: li.xpath('preceding::b').last.text.gsub('Qarku ','').tidy,
       party: li.xpath('preceding::p').last.text.tidy,
       term: '8',
       source: url,
